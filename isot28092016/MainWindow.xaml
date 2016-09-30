@@ -1,0 +1,53 @@
+﻿<Window x:Class="isot28092016.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:isot28092016"
+        mc:Ignorable="d"
+         Title="MainWindow" Height="450" Width="735">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="505"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="Pасчет результата инвестиций" TextWrapping="Wrap"  TextAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Mинимальный вклад – $5000, cрок вклада – 10 лет" TextWrapping="Wrap"  TextAlignment="Center" Margin="0 10 0 0"/>
+            <TextBlock Text="Процент 8% в год, с ежегодным начислением и капитализацией" TextWrapping="Wrap" TextAlignment="Center"/>
+            <TextBlock Text="Введите сумму вклада" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0 10 0 0"/>
+            <TextBox x:Name="tbxinvest" Width="100" Margin="0 10 0 0"/>
+            <Button x:Name="btn1" Content="Рассчитать" Click="Button_Click" Background="LawnGreen" Width="100" Margin="0 10 0 0"/>
+        </StackPanel>
+        <StackPanel x:Name="total2" Grid.Column="1" Grid.Row="0" Orientation="Horizontal" Visibility="Hidden">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" Width="490">
+                <StackPanel>
+                    <StackPanel x:Name="total">
+                        <TextBlock Height="20" Width="480"  Background="Aqua" Text="Вывод результатов по годам" TextAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </StackPanel>
+        <ScrollViewer x:Name="scroll1" Grid.Column="0" Grid.Row="1" Width="230" Visibility="Hidden">
+            <StackPanel x:Name="stcp1">
+                <TextBlock Text="Через 10 лет, после окончания срока вклада, вы вложили приобретенный капитал в публичные акции «АБН-Банк» на 1 год. " TextWrapping="Wrap"  TextAlignment="Center" FontSize="11" Margin="0 10 0 0"/>
+                <TextBlock Text="Норма прибыли капиталовложений изменяется согласно функции:" TextWrapping="Wrap" TextAlignment="Center" FontSize="11"/>
+                <TextBlock Text="z=0.1+0.002*x^2+0.5*sin2x+cos3x" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" Margin="0 10 0 0"/>
+                <TextBlock Text="Где z - процентная ставка в долях, x - месяц, с помесячным шагом" TextWrapping="Wrap"  TextAlignment="Center" FontSize="11" Margin="0 10 0 0"/>
+                <StackPanel>
+                    <Button Width="100" Height="20" Margin="20 5 0 0" Content="Прогноз" Background="DarkOrchid" Click="Button_Click_1"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer x:Name="scroll2" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Auto" Width="490" Margin="-10 10 0 0" Visibility="Hidden">
+            <StackPanel x:Name="total1">
+                    <TextBlock Height="20" HorizontalAlignment="Stretch" Background="LightBlue" Text="Результат инвестиций по месяцам (1-12 месяц)" TextAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+            </ScrollViewer>
+    </Grid>
+</Window>
+
