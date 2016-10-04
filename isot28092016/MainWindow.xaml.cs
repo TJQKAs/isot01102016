@@ -17,9 +17,10 @@ namespace isot28092016
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary> 
     public partial class MainWindow : Window
     {
+        public string moneyg;
         public double finalsum;
 
         public MainWindow()
@@ -45,6 +46,7 @@ namespace isot28092016
                 List<decimal> ostatok = getOstatok(money);
                 List<string> accountSum = new List<string>();
                 int m = getSumOfInvetment(5000).Count;
+                moneyg = tbxinvest.Text;
 
                 for (int i = 0; i < m; i++)
                 {
@@ -124,9 +126,7 @@ namespace isot28092016
 
         private static List<ListBoxItem> getListresult(int first_frame, int last_frame, double sum)
         {
-            //StackPanel stckpnl = new StackPanel();
-            //stckpnl.Width = 200;
-            //stckpnl.Height = 40;
+
             List<ListBoxItem> month_calculation = new List<ListBoxItem>();
             double next_sum = 0;
             while (first_frame < (last_frame+1))
@@ -155,7 +155,6 @@ namespace isot28092016
                 else
                 {
                     month_calculation.Add(lbi);
-                    //stckpnl.Children.Add(lbi);
                 }
                 first_frame++;
             }
@@ -174,7 +173,8 @@ namespace isot28092016
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ForecastForm frctForm = new ForecastForm();
+            MainWindow mn = this;
+            ForecastForm frctForm = new ForecastForm(mn);
             frctForm.Show();
         }
     }
